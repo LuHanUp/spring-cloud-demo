@@ -25,6 +25,7 @@
         <module>service-zuul</module>
         <module>config-server-git</module>
         <module>config-client-git</module>
+        <module>server-zipkin</module>
     </modules>
 
     <parent>
