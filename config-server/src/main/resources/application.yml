@@ -1,0 +1,21 @@
+server:
+  port: 8888
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true # 表示访问路径显示IP地址
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/LuHanUp/spring-cloud-demo-config # git仓库地址
+          search-paths: config # 配置git仓库放配置文件的文件夹名称
+          username: # 如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
+          password: # 如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
+      label: master # 配置仓库的分支
