@@ -1,0 +1,15 @@
+server:
+  port: 8801
+spring:
+  application:
+    name: config-client-git
+  cloud:
+    config:
+      profile: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true # 表示访问路径显示IP地址
