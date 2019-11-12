@@ -1,0 +1,10 @@
+server:
+  port: 8081
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: false # false表示不需要检索服务
+    register-with-eureka: false # false来表明自己是一个eureka server.
+    serverUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

@@ -1,0 +1,17 @@
+server:
+  port: 2001
+spring:
+  application:
+    name: service-monitoring
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true # 表示访问路径显示IP地址
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream #actuator在springboot2.0调整后开关 web端点的配置,"*"代表开启所有

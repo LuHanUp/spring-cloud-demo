@@ -1,0 +1,12 @@
+server:
+  port: 9081
+spring:
+  application:
+    name: service-api
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true # 表示访问路径显示IP地址
